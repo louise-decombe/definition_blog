@@ -1,0 +1,39 @@
+
+
+
+footer {
+    height: 100px;
+    bottom: auto;
+}
+
+.navbar-custom a, .navbar-custom {
+    color : white;
+}
+
+.footer-bas{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container-account {
+    margin: 15%;
+ 
+}
+
+.block-form {
+    
+    padding: 2%;
+    margin: 2% ;
+}
+
+.recap {
+    background-color: aliceblue;
+    padding: 10px;
+
+}
+
+footer {
+    margin-top: 400px;
+}

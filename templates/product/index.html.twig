@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Définitions{% endblock %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-3">
+<h1> Futur filtre </h1> 
+
+<p> ici les catégories </p>
+
+
+</div>
+<div class="col-md-9">
+
+<h1> Les définitions </h1>
+
+<div class="row"> 
+{% for product in products %}
+
+<div class="col-md-4"> 
+
+<div class="product-item text-center"> 
+
+<a href="{{ path('product', {'slug': product.slug})}}"><img src="/uploads/{{product.illustration}}" alt="image produit" class="img-fluid" width=""></a>
+<h4> {{product.name}} </h4>
+<span> {{product.subtitle}} </span> <hr>
+{{(product.price / 100) | number_format(2) }}euros
+</div>   
+
+</div>
+{% endfor %}
+</div>
+
+</div>
+</div>
+
+
+{% endblock %}
