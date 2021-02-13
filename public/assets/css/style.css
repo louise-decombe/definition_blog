@@ -1,39 +1,75 @@
-
-
-
-footer {
-    height: 100px;
-    bottom: auto;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.navbar-custom a, .navbar-custom {
-    color : white;
+main {
+
+min-height: 900px;
+
 }
 
-.footer-bas{
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/** FORM **/
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px
 }
 
-.container-account {
-    margin: 15%;
- 
+.card-def {
+    width: 400px;
+    height: 200px;
+    margin-left: 5px;
+    margin-right: 5px
 }
 
-.block-form {
+
+  input[type='checkbox'] {
+    display: none;
+  }
+  
+  /* Flip Cards CSS */
+
+  .container-def {
+      display: flex;
+      flex-direction: row;
     
-    padding: 2%;
-    margin: 2% ;
-}
+  }
 
-.recap {
-    background-color: aliceblue;
-    padding: 10px;
+  .card-container {
+    display: flex;
+    perspective: 700px;
+  }
+  
+  .card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+    border: solid lightgray 1px;
+    border-radius: 5%;
+  }
+  
+  .card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
 
-}
-
-footer {
-    margin-top: 400px;
-}
+  .front {
+    grid-area: frontAndBack;
+  }
+  
+  .back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+  }
+  
+  input[type='checkbox']:checked + .card-container .card-flip {
+    transform: rotateY(180deg);
+  }
+  
+ 

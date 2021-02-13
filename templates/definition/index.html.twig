@@ -4,37 +4,57 @@
 
 {% block content %}
 
-<div class="row">
-<div class="col-md-3">
-<h1> Futur filtre </h1> 
+<h1 class="text-center"> Les définitions </h1>
 
-<p> ici les catégories </p>
-
-
+<h4> recherche </h4>
+<div class="card">
+<div class="card-body">
+            {{ form(form) }}
 </div>
-<div class="col-md-9">
+</div>
+<div class="container-def">
+  {% for definition in definitions %}
 
-<h1> Les définitions </h1>
+<div class="container definition">
+  <div class="row">
 
-<div class="row"> 
-{% for definition in definitions %}
+          <!-- Card 1 -->
+    <input type="checkbox" id="card-{{definition.id}}"/>
+    <label class="col-md-2  card-container" for="card-{{definition.id}}">
+      <div class="card-flip">
+        <!-- Card 1 Front -->
+        <div class="card-def front">
+          <span class="fa fa-4x fa-smile-o text-center"></span>
+          <div class="card-block">
+            <h4 class="card-title text-center mt-3">  {{definition.name}} </h4>
+            <h6 class="card-subtitle mb-2 text-muted text-center">{{definition.subtitle}}</h6>
+<a href="{{ path('definition_show', {'slug': definition.slug})}}" class="btn btn-secondary text-center"> voir plus </a>
+          </div>
+        </div>
+        <!-- End Card 1 Front -->
 
-<div class="col-md-4"> 
+        <!-- Card 1 Back -->
+        <div class="card-def back overflow-auto">
+          <div class="card-block">
+            <h4 class="card-title">{{definition.name}}</h4>
+            <p class="card-text">{{definition.description}}</p>
+            <a href="#" class="card-link">{{definition.source}}</a>
+          </div>
+        </div>
+        <!-- End Card 1 Back -->
+      </div>
+    </label>
+    <!-- End Card 1 -->
 
-<div class="product-item text-center"> 
-
-<a href="{{ path('product', {'slug': product.slug})}}"><img src="/uploads/{{product.illustration}}" alt="image produit" class="img-fluid" width=""></a>
-<h4> {{product.name}} </h4>
-<span> {{product.subtitle}} </span> <hr>
-{{(product.price / 100) | number_format(2) }}euros
-</div>   
-
+  </div>
 </div>
 {% endfor %}
-</div>
 
 </div>
-</div>
+{% endblock %}
 
+{% block JavaScript %}
+<script>
 
+</script>
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Definitions;
+use App\Classe\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -18,6 +19,33 @@ class DefinitionsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Definitions::class);
     }
+
+    /**
+     * Requête qui me permet de récuperer les produits en fonction de la recherche de l'utilisateur
+     * @return Product[]
+     */
+    public function findWithSearch(Search $search)
+    {
+        $query = $this
+            ->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->join('p.subcategory', 'c');
+
+        if (!empty($search->categories)) {
+            $query = $query
+                ->andWhere('c.id IN (:subcategories)')
+                ->setParameter('subcategories', $search->categories);
+        }
+
+        if (!empty($search->string)) {
+            $query = $query
+                ->andWhere('p.name LIKE :string')
+                ->setParameter('string', "%{$search->string}%");
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
 
     // /**
     //  * @return Definitions[] Returns an array of Definitions objects

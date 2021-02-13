@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes définition{% endblock %}
+
+{% block content %}
+
+<div class="container-account">
+<a href="{{ path('account_definition_add')}}" class="btn btn-info small float-right"> ajouter une définition </a>
+
+<h1> Mes définitions </h1>
+
+<p> Bienvenue <strong> {{ app.user.firstname}} </strong>. </br> c'est dans cet espace que vous pouvez gérez toutes vos définition. </p>
+<br>
+
+<hr>
+
+{% if app.user.definitions|length == 0 %}
+
+<p> Vous n'avez pas de définition pour le moment, veuillez en ajouter une. </p> 
+
+{% else %}
+<div class="row">
+
+{% for definition in app.user.definitions %}
+
+<div class="col-col-md-4">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> {{ definition.name }}</h5>
+    <p class="card-text">{{ definition.subtitle }}</p> <br>
+
+    <a href="{{path('account_definition_edit', {'id' : definition.id })}}" class="btn btn-secondary">Modifier</a>
+        <a href="{{ path('account_definition_delete', { 'id' : definition.id })  }}" class="btn btn-warning">Supprimer</a>
+
+  </div>
+</div>
+</div>
+
+{% endfor %}
+</div>
+
+
+ {% endif %}
+</div>
+<a href="{{ path('account') }}"> Retour </a>
+ 
+{% endblock %}

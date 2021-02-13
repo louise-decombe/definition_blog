@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{definitions.name}}{% endblock %}
+
+{% block content %}
+
+<div class="card">
+<div class=" card-body col-md-5">
+<h1> {{definitions.name}} </h1>
+<h1> {{definitions.subtitle}} </h1>
+
+<p> {{definitions.description}} </p>
+
+</div>
+<div class="col-md-7 my-auto">
+
+    </div>
+</div>
+<div><a href="{{ path('definition') }}">Retour aux définitions</a> </div>
+
+{% endblock %}

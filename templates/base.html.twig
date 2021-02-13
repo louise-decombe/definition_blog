@@ -5,148 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Une boutique qui vend des produits d'exception">
  
-    <title> {% block title %} Dev définitions {% endblock %}  </title>
+    <title> {% block title %} Dévinition {% endblock %}  </title>
 
     <!-- Bootstrap CSS -->
     <link href=" {{ asset('assets/css/bootstrap.min.css') }} " rel="stylesheet">
     <link href=" {{ asset('assets/css/style.css') }} " rel="stylesheet">
+<!-- Semantic ui -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/table.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/card.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/label.min.css">
+      <!-- Bootstrap core CSS   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ -->
 
-{% block javascript %}
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-{% endblock %}
+  <!-- Custom styles for this template -->
+  <link href="{{ asset('assets/css/one-page-wonder.css') }}" rel="stylesheet">
 
-   <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-        <a class="navbar-brand" href="{{ path('home')}}">Dev définitions</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> 
-        </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+{% block JavaScript %} {% endblock %}
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+    <a class="navbar-brand" href="{{ path('home')}}"> Dévinition </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
 
-        <ul class="navbar-nav mr-auto" href=""> 
-       <li class="nav-item active">
-       <a class="nav-link" href="{{ path('home')}}"> Définitions </a>
-     
-       </li>
-       <li class="nav-item active">
-       <a class="nav-link text-dark" href="{{ path('home')}}"> Catégories </a>
-     
-       </li>
-       <li class="nav-item active">
-       <a class="nav-link" href="{{ path('home')}}">  </a>
-     
-       </li>
-         </ul>
-           <div class="navbar-custom">
 
 {% if app.user %}
-            <a href="{{ path('account') }}" class="text-dark"> mon compte {{ app.user.firstname }}</a> | <a href="{{ path('app_logout') }}" class="text-dark"> déconnexion | </a>
+<li class="nav-item">
+            <a href="{{ path('account') }}" class="nav-link"> compte de :<strong> {{ app.user.firstname }} </strong></a> 
+</li>
+<li class="nav-item">
+ <a href="{{ path('app_logout') }}" class="nav-link"> déconnexion | </a>
+</li>
+<li class="nav-item">
+           <a href="{{ path('account') }}" class="nav-link"> + ajout définition </a>
 
+</li>
 {% else %}
-            <a href="{{ path('app_login') }}" class="text-dark">connexion</a> | <a href="{{ path('register') }}" class="text-dark"> inscription |  </a>
+             <li class="nav-item">
+ <a href="{{ path('app_login') }}" class="nav-link">connexion |  </a>         </li>
+          <li class="nav-item">
+            <a href="{{ path('register') }}" class="nav-link"> inscription   </a>
+          </li>
 
 {% endif %}
-           <a href="{{ path('account') }}" class="text-dark"> + ajouter quelque chose </a>
-          </div>
-        </div>
-    </nav>
-</header>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<main role="main">
-
-   </div>
 
 
 {% block content %}
 
 {% endblock %}
 
- </div>
 
-<!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!--Grid row-->
-    <div class="row">
-      <!--Grid column-->
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Qui sommes nous ?</h5>
+</main>
 
-        <p>
-        Nous sommes des étudiants en développement web à La Plateforme_ Marseille
-Trouver et ajoutez des définitions liées au vocabulaire de dev dont on a besoin ! 
-        </p>
-      </div>
-      <!--Grid column-->
+  <!-- Bootstrap core JavaScript -->
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+<!-- jQuery --> 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/retina.js/2.1.3/retina.min.js"></script>
+<script src="{{'assets/js/justFlipIt.js'}}"></script>
+<script src=" {{'assets/js/bootstrap.bundle.js'}} "></script>
 
+ <!-- Footer -->
+
+  <footer class="py-5 bg-black fixed-bottom">
+    <div class="container">
+     <div class="">
         <ul class="list-unstyled mb-0">
           <li>
-            <a href="#!" class="text-dark">Nous contacter</a>
+            <a href="{{ path('contact')}}" class="text-light">Nous contacter</a>
           </li>
           <li>
-            <a href="{{ path('faq')}}" class="text-dark">FAQ</a>
+            <a href="{{ path('faq')}}" class="text-light">FAQ</a>
           </li>
-          
           <li>
-            <a href="{{ path('terms_conditions') }}" class="text-dark">Mention légales</a>
+            <a href="{{ path('terms_conditions') }}" class="text-light"> Mention légales</a>
           </li>
         </ul>
       </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="{{ path('products') }}" class="text-dark">Livres</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Blog</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Agenda</a>
-          </li>
-          
-        </ul>
-      </div>
-      <!--Grid column-->
     </div>
-    <!--Grid row-->
-  </div>
-  <!-- Grid container -->
-
-</footer>
-</main>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src=" {{'assets/js/bootstrap.bundle.js'}} "></script>
+  </footer>
+</script>
 </body>
-
-
-{% block script %}
-
-{% endblock %}
-
 </html>

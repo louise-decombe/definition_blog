@@ -4,16 +4,45 @@
 
 {% block content %}
 
+<div class=" text-center mt-9 lt-9">
+
 <h1> Mon compte </h1>
 
-<p> Bienvenue {{ app.user.firstname}}. </br> c'est dans cet espace que vous pouvez gérez toutes vos infos. </p>
+<p> Bienvenue  <strong> {{ app.user.firstname}}. </strong> </br> c'est dans cet espace que vous pouvez gérez toutes vos infos. </p>
 
+</div>
+<div class="card-deck">
 {% if is_granted('ROLE_ADMIN')%}
-<a href="/admin"> <strong> Accéder au panel administrateur </strong> </a> <br>
+
+
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title"><a href="/admin"> <strong> Accéder au panel administrateur </strong> </a> <br>
+
+ </a> 
+</h5>
+      <p class="card-text"><small class="text-muted">accès au back-office</small></p>
+    </div>
+  </div>
+
 {% endif %}
 
-<a href="{{ path('account_password') }}"> Modifier mon mot de passe </a> <br>
-<a href="{{ path('account_address') }}"> Gérer mes Définitions </a> <br>
+ <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{{ path('account_password') }}"> Modifier mon mot de passe </a> 
+</h5>
+      <p class="card-text"><small class="text-muted">modifier vos coordonnés</small></p>
+    </div>
+  </div>
+   <div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{{ path('account_definition') }}"> Gérer mes Définitions </a> 
+ </a> 
+</h5>
+      <p class="card-text"><small class="text-muted">ajouter supprimer updater des définitions</small></p>
+    </div>
+  </div>
+</div>
 
-</a>
+
 {% endblock %}

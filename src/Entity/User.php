@@ -43,6 +43,11 @@ class User implements UserInterface
         return $this->getFirstname().' '.$this->getLastname();
     }
 
+    
+    public function __toString()
+    {
+        return $this->getFirstname();
+    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,10 +59,7 @@ class User implements UserInterface
      */
     private $lastname;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Address::class, mappedBy="user")
-     */
-    private $addresses;
+   
 
     /**
      * @ORM\OneToMany(targetEntity=Definitions::class, mappedBy="user")
@@ -66,7 +68,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->addresses = new ArrayCollection();
         $this->definitions = new ArrayCollection();
     }
 
@@ -168,38 +169,6 @@ class User implements UserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-
-
-    /**
-     * @return Collection|Address[]
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
-    }
-
-    public function addAddress(Address $address): self
-    {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses[] = $address;
-            $address->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null);
-            }
-        }
 
         return $this;
     }

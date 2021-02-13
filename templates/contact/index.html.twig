@@ -5,17 +5,56 @@
 {% block content %}
 
 
-<div  class="container"> 
-<hr>
-
-<h1> Laissez nous un message ! </h1>
-
 {% for message in app.flashes('notice') %}
 <div class="alert alert-info"> {{message}} </div>
 {% endfor %}
-<div class="row">
 
-{{ form(form) }}
+{{form_start(form)}}
+
+
+<div class="row">
+<div class="container"> <div class="text-center mt-4 ">
+        <h1>Une question ? Contactez-nous</h1>
+    </div>
+    <div class="row ">
+        <div class="col-lg-7 mx-auto">
+            <div class="card mt-2 mx-auto p-4 ">
+                <div class="card-body bg">
+                    <div class="container">
+                        <form id="contact-form" role="form">
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_name">{{ form_row(form.nom) }}</label>  </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_lastname">{{ form_row(form.prenom) }}</label> </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <label for="form_email">  {{ form_row(form.email) }}</label>  </div>
+                                    </div>
+                             
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group"> <label row="4" for="form_message">{{ form_row(form.content) }}</label>  </div>
+                                    </div>
+                                    <div class="col-md-12 btn  pt-2 btn-block" value=""> {{ form_row(form.submit) }} </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- /.8 -->
+        </div> <!-- /.row-->
+    </div>
+</div>
+
+
+
+{{form_end(form)}}
 
 </div>
 
