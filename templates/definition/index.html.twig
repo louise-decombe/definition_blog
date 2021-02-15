@@ -5,13 +5,16 @@
 {% block content %}
 
 <h1 class="text-center"> Les définitions </h1>
-
-<h4> recherche </h4>
-<div class="card">
-<div class="card-body">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"><div class="card search-form">
+<div class="card-body text-center">
             {{ form(form) }}
 </div>
+</div></div>
+  <div class="col-md-4"></div>
 </div>
+
 <div class="container-def">
   {% for definition in definitions %}
 
@@ -26,7 +29,7 @@
         <div class="card-def front">
           <span class="fa fa-4x fa-smile-o text-center"></span>
           <div class="card-block">
-            <h4 class="card-title text-center mt-3">  {{definition.name}} </h4>
+            <h4 class="card -title text-center mt-3">  {{definition.name}} </h4>
             <h6 class="card-subtitle mb-2 text-muted text-center">{{definition.subtitle}}</h6>
 <a href="{{ path('definition_show', {'slug': definition.slug})}}" class="btn btn-secondary text-center"> voir plus </a>
           </div>
@@ -37,7 +40,7 @@
         <div class="card-def back overflow-auto">
           <div class="card-block">
             <h4 class="card-title">{{definition.name}}</h4>
-            <p class="card-text">{{definition.description}}</p>
+            <p class="card-text text-justify">{{definition.description}}</p>
             <a href="#" class="card-link">{{definition.source}}</a>
           </div>
         </div>

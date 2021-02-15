@@ -5,6 +5,8 @@
 {% block content %}
 
 <div class="container-account">
+
+
 <a href="{{ path('account_definition_add')}}" class="btn btn-info small float-right"> ajouter une définition </a>
 
 <h1> Mes définitions </h1>
@@ -41,7 +43,14 @@
 
 
  {% endif %}
+ <a href="{{ path('account') }}"> Retour </a>
+
 </div>
-<a href="{{ path('account') }}"> Retour </a>
  
+</div>
+
+<div class="col-md-3">
+</div>
+</div>
+
 {% endblock %}

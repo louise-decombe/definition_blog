@@ -26,13 +26,6 @@ class SearchType extends AbstractType
                     'class' => 'form-control-sm'
                 ]
             ])
-            ->add('subcategory', EntityType::class, [
-                'label' => false,
-                'required' => false,
-                'class' => Subcategory::class,
-                'multiple' => true,
-                'expanded' => true
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Filtrer',
                 'attr' => [
